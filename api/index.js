@@ -1,4 +1,20 @@
 import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+// To access env file
+
+// This way we hide our password of MongoDB while still giving access and sharing it on places like git
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => {
+    console.log("connected to MongoDB");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const app = express();
 
