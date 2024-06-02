@@ -1,0 +1,30 @@
+body {
+  font-family: "Rethink Sans", sans-serif;
+  font-family: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+}
+
+.bg-grey {
+  background-color: #fcfcfc;
+}
+
+.bg-white {
+  background-color: #fefefe;
+}
+
+.cta-black {
+  background-color: #111111;
+  color: #fefefe;
+}
+
+.primary-black {
+  color: #111111;
+}
