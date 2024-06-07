@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Rethink Sans", sans-serif;
+  font-family: 500;
+  background-color: #fcfcfc;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+}
+
+#logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+.bg-grey {
+  background-color: #fcfcfc;
+}
+
+.bg-white {
+  background-color: #fefefe;
+}
+
+.cta-black {
+  background-color: #111111;
+  color: #fefefe;
+}
+
+.primary-black {
+  color: #111111;
+}

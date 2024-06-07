@@ -6,7 +6,7 @@ export default function Header() {
     <header className="bg-grey shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="text-sm sm:text-xl flex flex-wrap italic">
+          <h1 id="logo" className="text-sm sm:text-xl flex flex-wrap italic">
             <span>Luxe</span>
             <span>Realty</span>
           </h1>
