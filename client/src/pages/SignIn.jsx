@@ -1,14 +1,24 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  signInStart,
+  signInFailure,
+  signInSuccess,
+} from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 export default function SignIn() {
   // Storing state/data when user is entering/typing data in any of input fields
   const [formData, setFormData] = useState({});
   // State for error
-  const [error, setError] = useState(null);
+  const { loading, error } = useSelector((state) => state.user);
+  // const [error, setError] = useState(null);
+
   // State for loading
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); //using useNavigate hook so we can go to sign in page
+  const dispatch = useDispatch();
 
   // Tracking data when user is entering/typing data in any of input fields
   const handleChange = (e) => {
@@ -20,7 +30,8 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // preventing page refresh
     try {
-      setLoading(true);
+      // setLoading(true);
+      dispatch(signInStart());
       const res = await fetch(
         "/api/auth/signin", //from here we use proxy (refer vite.config.js)
         {
@@ -36,16 +47,19 @@ export default function SignIn() {
       const data = await res.json(); //converting data to json
 
       if (data.success === false) {
-        setLoading(false);
-        setError(data.message);
+        // setLoading(false);
+        // setError(data.message);
+        dispatch(signInFailure(data.message));
         return;
       }
-      setLoading(false);
-      setError(null);
+      // setLoading(false);
+      // setError(null);
+      dispatch(signInSuccess(data));
       navigate("/");
     } catch (error) {
-      setLoading(false);
-      setError(error.message);
+      // setLoading(false);
+      // setError(error.message);
+      dispatch(signInFailure(error.message));
     }
   };
   console.log(formData);
@@ -78,6 +92,7 @@ export default function SignIn() {
             >
               {loading ? "Loading..." : "Sign In"}
             </button>
+            <OAuth />
           </form>
           <div className="flex mt-4 gap-2">
             <p>Dont Have an account?</p>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 export default function SignUp() {
   // Storing state/data when user is entering/typing data in any of input fields
@@ -85,6 +86,7 @@ export default function SignUp() {
             >
               {loading ? "Loading..." : "SignUp"}
             </button>
+            <OAuth />
           </form>
           <div className="flex mt-4 gap-2">
             <p>Have an account?</p>
