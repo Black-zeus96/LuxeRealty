@@ -66,7 +66,7 @@ export default function SignIn() {
 
   return (
     <div className="p-3 container mx-auto">
-      <h1 className="text-center my-7 text-3xl font-bold">Welcome Back!</h1>
+      {/* <h1 className="text-center my-7 text-3xl font-bold">Welcome Back!</h1> */}
       <div className="container-userform rounded">
         <div className="userform-imagebox" id="signin-image"></div>
         <div className="userform-contentbox">
@@ -78,6 +78,7 @@ export default function SignIn() {
               className="rounded border p-3"
               id="email"
               onChange={handleChange}
+              required
             />
             <input
               type="password"
@@ -85,6 +86,7 @@ export default function SignIn() {
               className="rounded border p-3"
               id="password"
               onChange={handleChange}
+              required
             />
             <button
               disabled={loading}
