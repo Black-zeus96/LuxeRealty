@@ -20,6 +20,7 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { set } from "mongoose";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -151,7 +152,6 @@ export default function Profile() {
           />
           <i className="fa-solid fa-pen-to-square absolute right-2 top-20 cursor-pointer text-slate-600"></i>
         </div>
-
         {/* display file upload status */}
         <p className="text-center text-sm text-red-700 self-center">
           {fileUploadError ? (
@@ -168,9 +168,7 @@ export default function Profile() {
             ""
           )}
         </p>
-
         {/* Form fields */}
-
         <input
           type="text"
           placeholder="userName"
@@ -201,6 +199,12 @@ export default function Profile() {
         >
           {loading ? "Loading..." : "Update"}
         </button>
+        <Link
+          className="bg-green-700 rounded-lg p-3 text-white uppercase hover:opacity-95 text-center"
+          to={"/create-listing"}
+        >
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between gap-4 mt-4">
         <span onClick={handleDeleteUser} className="text-red-700">
