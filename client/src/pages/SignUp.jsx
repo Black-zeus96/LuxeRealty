@@ -38,7 +38,11 @@ export default function SignUp() {
 
       if (data.success === false) {
         setLoading(false);
-        setError(data.message);
+        if (data.message && data.message.includes("E11000")) {
+          setError("This user already exists. Please try a different email!");
+        } else {
+          setError(data.message);
+        }
         return;
       }
       setLoading(false);

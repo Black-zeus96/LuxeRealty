@@ -50,6 +50,42 @@ export default function Home() {
             />
           </div>
         </section>
+
+        {/* About Us Section */}
+
+        <section className="section-about">
+          <div className="container-about">
+            <div>
+              <h3 className="heading-level-three">
+                Enjoy Quality Life With Luxe Realty
+              </h3>
+            </div>
+            <div className="about-data">
+              <p>
+                Welcome to the Luxe Realty Marketplace. Luxe Realty is right
+                choice for those who are looking for comfortable, safe and
+                luxurious housing. You can enjoy privacy and comfot of living in
+                clean and beautiful environment. Sign up today and list your
+                listing, explore other listings and contact landlord of the
+                properties you are interested in.
+              </p>
+              <div className="stats-about flex mt-6 gap-28">
+                <div>
+                  <p className="abtstats-head font-bold">100+</p>
+                  <p className="abtstats-subhead">Units Ready</p>
+                </div>
+                <div>
+                  <p className="abtstats-head">60K+</p>
+                  <p className="abtstats-subhead">Customers</p>
+                </div>
+                <div>
+                  <p className="abtstats-head">70K+</p>
+                  <p className="abtstats-subhead">Review</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
