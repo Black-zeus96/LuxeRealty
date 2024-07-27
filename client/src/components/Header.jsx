@@ -1,9 +1,30 @@
 import { FaSearch } from "react-icons/fa"; // importing search icon
-import { Link } from "react-router-dom"; // Importing link
+import { Link, useNavigate } from "react-router-dom"; // Importing link
 import {useSelector} from 'react-redux'; // Importing useSelector from react-redux
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const {currentUser} = useSelector(state => state.user); // Getting current user from redux store
+  const [searchTerm, setSearchTerm] = useState(''); // Setting search term to empty string
+  const navigate = useNavigate();
+  
+  // Function to handle search
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('searchTerm', searchTerm);
+    const searchQuery = urlParams.toString();
+    navigate(`/search?${searchQuery}`);
+  };
+
+  // UseEffect to get search term from url
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const searchTermFromUrl = urlParams.get('searchTerm');
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl);
+    }
+  }, [location.search]);
   return (
     <header className="bg-grey shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
@@ -14,6 +35,7 @@ export default function Header() {
           </h1>
         </Link>
         <form
+        onSubmit={handleSubmit}
           action=""
           className="bg-white p-3 rounded-lg flex items-center border"
         >
@@ -21,8 +43,12 @@ export default function Header() {
             type="text"
             placeholder="Search"
             className="bg-transparent focus:outline-none w-24 sm:w-64"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <button>
           <FaSearch className="bg-white" />
+          </button>
         </form>
         <ul className="flex gap-4 primary-black">
           <Link to="/">
