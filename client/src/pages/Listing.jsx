@@ -83,7 +83,7 @@ export default function Listing() {
               </p>
               {listing.offer && (
                 <p className="bg-green-900 my-4 w-full max-w-[200px] text-white text-center p-2 rounded-md">
-                  Discount of ${listing.regularPrice - listing.discountPrice}
+                  Discount of ${+listing.regularPrice - +listing.discountPrice}
                 </p>
               )}
             </div>
@@ -91,7 +91,7 @@ export default function Listing() {
               <span className="font-semibold text-black">
                 Description - {""}
               </span>
-              {listing.address}
+              {listing.description}
             </p>
             <ul className="text-green-800 font-semibold text-md flex  flex-wrap flex-row gap-6">
               <li className="flex items-center gap-1 whitespace-nowrap">
