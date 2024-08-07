@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import ListingItem from "../components/ListingItem";
 
 export default function Home() {
+  const [offerListings, setOfferListings] = useState([]);
+  const [saleListings, setSaleListings] = useState([]);
+  const [rentListings, setRentListings] = useState([]);
+  console.log(saleListings);
+
+  // Making sure that each dynamic section loads one after the other
+
+  useEffect(() => {
+    const fetchOfferListings = async () => {
+      try {
+        const res = await fetch("/api/listing/get?offer=true&limit=4");
+        const data = await res.json();
+        setOfferListings(data);
+        fetchRentListings();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchRentListings = async () => {
+      try {
+        const res = await fetch("/api/listing/get?type=rent&limit=4");
+        const data = await res.json();
+        setRentListings(data);
+        fetchSaleListings();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchSaleListings = async () => {
+      try {
+        const res = await fetch("/api/listing/get?type=sale&limit=4");
+        const data = await res.json();
+        setSaleListings(data);
+        fetchSaleListings(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchOfferListings();
+  }, []);
+
   return (
     <div>
       <div id="body">
@@ -17,7 +62,11 @@ export default function Home() {
                 the finest homes to ensure you experience the epitome of
                 sophistication.
               </p>
-              <button className="cta-black">Explore Listings</button>
+              <div className="p-3 bg-black flex flex-row justify-center rounded w-64">
+                <Link className="text-white text-bold" to={"/search"}>
+                  Explore Listings
+                </Link>
+              </div>
             </div>
             <div className="hero-imagebox">
               <img
@@ -86,6 +135,77 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Show Listings */}
+
+        <div className="max-w-7xl mx-auto p-3 flex flex-col gap-6 my-10">
+          {offerListings && offerListings.length > 0 && (
+            <div className="">
+              <div className="my-3">
+                <h3 className="text-2xl font-semibold text-black">
+                  Recent Offers
+                </h3>
+                <Link
+                  className="text-sm text-blue-700 hover:underline"
+                  to={"/search?offer=true"}
+                >
+                  Show more offers
+                </Link>
+                <div className="flex flex-wrap gap-4 my-3">
+                  {offerListings.map((listing) => (
+                    <ListingItem listing={listing} key={listing._id} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Second */}
+
+          {rentListings && rentListings.length > 0 && (
+            <div className="">
+              <div className="my-3">
+                <h3 className="text-2xl font-semibold text-black">
+                  Recent Places for Rent
+                </h3>
+                <Link
+                  className="text-sm text-blue-700 hover:underline"
+                  to={"/search?type=rent"}
+                >
+                  Show more offers
+                </Link>
+                <div className="flex flex-wrap gap-4 my-3">
+                  {rentListings.map((listing) => (
+                    <ListingItem listing={listing} key={listing._id} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Third */}
+
+          {saleListings && saleListings.length > 0 && (
+            <div className="">
+              <div className="my-3">
+                <h3 className="text-2xl font-semibold text-black">
+                  Recent Places for Sale
+                </h3>
+                <Link
+                  className="text-sm text-blue-700 hover:underline"
+                  to={"/search?type=sale"}
+                >
+                  Show more offers
+                </Link>
+                <div className="flex flex-wrap gap-4 my-3">
+                  {saleListings.map((listing) => (
+                    <ListingItem listing={listing} key={listing._id} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
