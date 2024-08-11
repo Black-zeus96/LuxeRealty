@@ -12,6 +12,7 @@ import Listing from "./pages/Listing.jsx";
 import Search from "./pages/Search.jsx";
 import Footer from "./components/Footer.jsx";
 import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/search" element={<Search />} />

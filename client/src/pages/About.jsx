@@ -53,12 +53,6 @@ export default function About() {
           home is not just a possibility—it’s a reality waiting to be realized.
         </p>
       </div>
-
-      {/* Contact Form */}
-
-      <div>
-        <h3 className="text-3xl mt-4 font-bold text-black">Contact Us</h3>
-      </div>
     </div>
   );
 }

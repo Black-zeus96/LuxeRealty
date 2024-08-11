@@ -20,6 +20,11 @@ export default function () {
             </Link>
           </span>
           <span>
+            <Link className="text-white" to="/contact">
+              Contact
+            </Link>
+          </span>
+          <span>
             <Link
               className="text-white"
               target="_blank"

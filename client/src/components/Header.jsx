@@ -57,6 +57,9 @@ export default function Header() {
           <Link to="/about">
             <li className="hidden sm:inline hover:underline">About</li>
           </Link>
+          <Link to="/contact">
+            <li className="hidden sm:inline hover:underline">Contact</li>
+          </Link>
           <Link
             target="_blank"
             to="https://apps.royalbank.com/apps/mortgages/mortgage-payment-calculator/"
