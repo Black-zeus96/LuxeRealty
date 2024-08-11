@@ -51,7 +51,7 @@ export default function Home() {
       <div id="body">
         {/* Hero Section */}
         <section className="section-hero">
-          <div className="container-hero">
+          <div className="container-hero lg:p-10">
             <div className="hero-textbox">
               <h1 className="heading-level-one primary-black">
                 Discover a place you'll love to live in
@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             <div className="hero-imagebox">
               <img
-                src="./src/assets/images/hero1.jpg"
+                src="./src/images/hero1.jpg"
                 alt="An image of red house in the hero section of home page."
               />
             </div>
@@ -82,19 +82,16 @@ export default function Home() {
           <h2 className="heading-level-two">As Featured In:</h2>
           <div className="container-featuredin">
             <img
-              src="./src/assets/images/skynewslogo-black.svg"
+              src="./src/images/skynewslogo-black.svg"
               alt="Logo of Sky News"
             />
+            <img src="./src/images/bbclogo-black.svg" alt="Logo of BBC" />
             <img
-              src="./src/assets/images/bbclogo-black.svg"
-              alt="Logo of BBC"
-            />
-            <img
-              src="./src/assets/images/thenytlogo-black.svg"
+              src="./src/images/thenytlogo-black.svg"
               alt="Logo of The New York Times"
             />
             <img
-              src="./src/assets/images/theguardianlogo-black.svg"
+              src="./src/images/theguardianlogo-black.svg"
               alt="Logo of The Guardian"
             />
           </div>
