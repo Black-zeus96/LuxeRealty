@@ -56,7 +56,7 @@ export default function Home() {
               <h1 className="heading-level-one primary-black">
                 Discover a place you'll love to live in
               </h1>
-              <p className="subheading-level-one">
+              <p className="subheading-level-one lg:w-90">
                 Find the perfect luxury property tailored to your exquisite
                 taste and lifestyle needs. Our curated collection features only
                 the finest homes to ensure you experience the epitome of
@@ -68,32 +68,12 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="hero-imagebox">
+            {/* <div className="hero-imagebox">
               <img
                 src="./src/images/hero1.jpg"
                 alt="An image of red house in the hero section of home page."
               />
-            </div>
-          </div>
-        </section>
-
-        {/* Featured companies section */}
-        <section className="section-featuredin">
-          <h2 className="heading-level-two">As Featured In:</h2>
-          <div className="container-featuredin">
-            <img
-              src="./src/images/skynewslogo-black.svg"
-              alt="Logo of Sky News"
-            />
-            <img src="./src/images/bbclogo-black.svg" alt="Logo of BBC" />
-            <img
-              src="./src/images/thenytlogo-black.svg"
-              alt="Logo of The New York Times"
-            />
-            <img
-              src="./src/images/theguardianlogo-black.svg"
-              alt="Logo of The Guardian"
-            />
+            </div> */}
           </div>
         </section>
 
