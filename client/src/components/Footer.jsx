@@ -19,6 +19,15 @@ export default function () {
               About
             </Link>
           </span>
+          <span>
+            <Link
+              className="text-white"
+              target="_blank"
+              to="https://apps.royalbank.com/apps/mortgages/mortgage-payment-calculator/"
+            >
+              Mortgage Calculator
+            </Link>
+          </span>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import UpdateListing from "./pages/UpdateListing";
 import Listing from "./pages/Listing.jsx";
 import Search from "./pages/Search.jsx";
 import Footer from "./components/Footer.jsx";
+import About from "./pages/About.jsx";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/search" element={<Search />} />
