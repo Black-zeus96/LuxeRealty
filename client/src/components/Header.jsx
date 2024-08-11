@@ -1,6 +1,6 @@
-import { FaSearch } from "react-icons/fa"; // importing search icon
+import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom"; // Importing link
-import { useSelector } from "react-redux"; // Importing useSelector from react-redux
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 export default function Header() {

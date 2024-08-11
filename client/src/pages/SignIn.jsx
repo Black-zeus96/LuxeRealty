@@ -33,7 +33,7 @@ export default function SignIn() {
       // setLoading(true);
       dispatch(signInStart());
       const res = await fetch(
-        "/api/auth/signin", //from here we use proxy (refer vite.config.js)
+        "/api/auth/signin", //from here we use proxy
         {
           // Also, stringifying form data
 
